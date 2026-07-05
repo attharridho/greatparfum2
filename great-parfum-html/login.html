@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Great Parfum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F5F5F5] text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-6 md:gap-10">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="font-bold text-2xl tracking-tight text-[#0F0040]">Great Parfum</span>
+        </a>
+        <div class="hidden md:flex gap-6">
+          <a href="index.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Home</a>
+          <a href="catalog.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Perfumes</a>
+          <a href="builder.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Custom Blend</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Contact Us</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="search.html" class="p-2 hover:bg-gray-100 rounded-full transition text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+        <a href="favorites.html" class="p-2 hover:bg-gray-100 rounded-full transition text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </a>
+        <a href="login.html" class="p-2 bg-gray-100 rounded-full transition text-[#36E814]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="cart.html" class="p-2 hover:bg-gray-100 rounded-full transition relative text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-[#36E814]"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 flex items-center justify-center py-12 px-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 w-full max-w-md">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-[#0F0040] mb-2">Welcome Back</h1>
+        <p class="text-gray-500">Sign in to access your saved custom blends.</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); window.location.href='index.html';">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input type="email" placeholder="you@example.com" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#36E814] focus:border-transparent">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input type="password" placeholder="••••••••" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#36E814] focus:border-transparent">
+          </div>
+          
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2">
+              <input type="checkbox" class="rounded text-[#0F0040] focus:ring-[#36E814]">
+              <span class="text-gray-600">Remember me</span>
+            </label>
+            <a href="#" class="text-[#0F0040] font-medium hover:underline">Forgot password?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-8 py-3 px-4 bg-[#0F0040] hover:bg-opacity-90 text-white rounded-md font-medium transition">
+          Sign In
+        </button>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+          Don't have an account? <a href="#" class="text-[#36E814] font-semibold hover:underline">Create one now</a>
+        </p>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

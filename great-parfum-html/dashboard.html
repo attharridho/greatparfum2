@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Great Parfum Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+
+  <script src="./js/app.js"></script>
+</head>
+<body class="relative min-h-screen bg-[#0F0040] text-white overflow-hidden selection:bg-lime-500 selection:text-black">
+  
+  <!-- Interactive Sparkle Canvas -->
+  <canvas id="spark-canvas" class="absolute inset-0 pointer-events-none z-0 block w-full h-full"></canvas>
+
+  <!-- Navbar -->
+  <nav class="relative z-10 w-full border-b border-white/10 bg-[#0F0040]/50 backdrop-blur-md">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-6 md:gap-10">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="font-bold text-2xl tracking-tight text-white">Great Parfum</span>
+        </a>
+        <div class="hidden md:flex gap-6">
+          <a href="index.html" class="text-sm font-medium text-gray-300 transition-colors hover:text-[#36E814]">Home</a>
+          <a href="catalog.html" class="text-sm font-medium text-gray-300 transition-colors hover:text-[#36E814]">Perfumes</a>
+          <a href="builder.html" class="text-sm font-medium text-gray-300 transition-colors hover:text-[#36E814]">Custom Blend</a>
+          <a href="dashboard.html" class="text-sm font-medium text-[#36E814] transition-colors hover:text-[#36E814]">Admin</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="relative z-10 container mx-auto px-6 py-12">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold text-white tracking-tight">Dashboard</h1>
+      <p class="text-gray-300 mt-2 text-lg">Welcome back to the Great Parfum admin portal.</p>
+    </header>
+
+    <!-- Key Metrics Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <!-- Revenue -->
+      <div class="bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-xl rounded-xl p-6">
+        <div class="flex flex-row items-center justify-between mb-4">
+          <h3 class="text-sm font-medium text-gray-200">Total Revenue</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-lime-400"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="text-2xl font-bold">Rp 12.450.000</div>
+          <p class="text-xs text-lime-300 mt-1">+14.5% from last month</p>
+        </div>
+      </div>
+
+      <!-- Orders -->
+      <div class="bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-xl rounded-xl p-6">
+        <div class="flex flex-row items-center justify-between mb-4">
+          <h3 class="text-sm font-medium text-gray-200">New Orders</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-lime-400"><mpath d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        </div>
+        <div>
+          <div class="text-2xl font-bold">+234</div>
+          <p class="text-xs text-lime-300 mt-1">+5% from last month</p>
+        </div>
+      </div>
+
+      <!-- Customers -->
+      <div class="bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-xl rounded-xl p-6">
+        <div class="flex flex-row items-center justify-between mb-4">
+          <h3 class="text-sm font-medium text-gray-200">Active Customers</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-lime-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <div class="text-2xl font-bold">1,204</div>
+          <p class="text-xs text-gray-400 mt-1">Stable</p>
+        </div>
+      </div>
+
+      <!-- Activity -->
+      <div class="bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-xl rounded-xl p-6">
+        <div class="flex flex-row items-center justify-between mb-4">
+          <h3 class="text-sm font-medium text-gray-200">Custom Blends</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-lime-400"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <div>
+          <div class="text-2xl font-bold">542</div>
+          <p class="text-xs text-lime-300 mt-1">+22% this week</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Orders Section -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-2xl">
+      <h2 class="text-xl font-semibold mb-6">Recent Custom Orders</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="pb-3 text-sm font-medium text-gray-400">Order ID</th>
+              <th class="pb-3 text-sm font-medium text-gray-400">Customer</th>
+              <th class="pb-3 text-sm font-medium text-gray-400">Blend Name</th>
+              <th class="pb-3 text-sm font-medium text-gray-400">Status</th>
+              <th class="pb-3 text-sm font-medium text-gray-400">Total</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+              <td class="py-4 text-gray-300">#GP-1092</td>
+              <td class="py-4">Sarah J.</td>
+              <td class="py-4 text-lime-300">Midnight Bloom</td>
+              <td class="py-4">
+                <span class="px-2 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300">Processing</span>
+              </td>
+              <td class="py-4 font-medium">Rp 114.000</td>
+            </tr>
+            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+              <td class="py-4 text-gray-300">#GP-1091</td>
+              <td class="py-4">Budi T.</td>
+              <td class="py-4 text-lime-300">Ocean Breeze</td>
+              <td class="py-4">
+                <span class="px-2 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300">Shipped</span>
+              </td>
+              <td class="py-4 font-medium">Rp 85.000</td>
+            </tr>
+            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+              <td class="py-4 text-gray-300">#GP-1090</td>
+              <td class="py-4">Amanda W.</td>
+              <td class="py-4 text-lime-300">Sweet Vanilla</td>
+              <td class="py-4">
+                <span class="px-2 py-1 rounded-full text-xs font-medium bg-lime-500/20 text-lime-300">Delivered</span>
+              </td>
+              <td class="py-4 font-medium">Rp 100.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

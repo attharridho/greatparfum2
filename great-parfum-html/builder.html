@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Blend | Great Parfum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+  <script src="./js/data.js"></script>
+</head>
+<body class="antialiased min-h-screen flex flex-col bg-[#F5F5F5] text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-6 md:gap-10">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="font-bold text-2xl tracking-tight text-[#0F0040]">Great Parfum</span>
+        </a>
+        <div class="hidden md:flex gap-6">
+          <a href="index.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Home</a>
+          <a href="catalog.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Perfumes</a>
+          <a href="builder.html" class="text-sm font-medium transition-colors hover:text-[#36E814]">Custom Blend</a>
+          <a href="contact.html" class="text-sm font-medium text-gray-500 transition-colors hover:text-[#36E814]">Contact Us</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="search.html" class="p-2 hover:bg-gray-100 rounded-full transition text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+        <a href="favorites.html" class="p-2 hover:bg-gray-100 rounded-full transition text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </a>
+        <a href="login.html" class="p-2 hover:bg-gray-100 rounded-full transition text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="cart.html" class="p-2 hover:bg-gray-100 rounded-full transition relative text-[#0F0040]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-[#36E814]"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 container mx-auto px-4 py-12 max-w-4xl">
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-8">
+      
+      <!-- Progress -->
+      <div class="mb-8">
+        <div class="flex justify-between mb-2">
+          <span class="text-sm font-medium text-gray-500" id="step-label">Step 1 of 8</span>
+          <span class="text-sm font-medium text-[#0F0040]" id="price-label">Rp 0</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div id="progress-bar" class="bg-[#36E814] h-2 rounded-full transition-all duration-300" style="width: 12.5%"></div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-bold text-[#0F0040]" id="step-title">Choose Your Bottle Size</h1>
+        <p class="text-gray-500 mt-2" id="step-desc">Select the volume of your custom creation.</p>
+      </div>
+
+      <!-- Content Area -->
+      <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <!-- JS will populate options here -->
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex justify-between border-t pt-6">
+        <button id="btn-back" class="hidden px-6 py-2 border rounded-md font-medium text-gray-700 hover:bg-gray-50 transition">Back</button>
+        <button id="btn-next" class="px-6 py-2 bg-[#0F0040] text-white rounded-md font-medium hover:bg-opacity-90 transition disabled:opacity-50 ml-auto" disabled>Next Step</button>
+      </div>
+      
+      <!-- Checkout Button (Hidden until step 8) -->
+      <div id="checkout-container" class="hidden border-t pt-6 text-center">
+        <p class="text-sm text-gray-500 mb-4">You will be redirected to WhatsApp to finalize your order with our fragrance consultants.</p>
+        <a id="btn-whatsapp" href="#" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#25D366] text-white rounded-md font-bold hover:bg-[#1ebe57] transition w-full md:w-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Order via WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // State
+    const state = {
+      step: 1,
+      size: null,
+      family: null,
+      topNote: null,
+      heartNote: null,
+      baseNote: null,
+      concentration: null,
+      character: null,
+      name: "",
+      totalPrice: 0
+    };
+
+    const steps = [
+      {
+        id: 1, title: "Choose Your Bottle Size", desc: "Select the volume of your custom creation.",
+        field: "size",
+        options: [
+          { id: "30ml", title: "30ml (Discovery)", desc: "Perfect for testing.", price: 45000 },
+          { id: "50ml", title: "50ml (Standard)", desc: "The everyday classic.", price: 65000 },
+          { id: "100ml", title: "100ml (Premium)", desc: "For true enthusiasts.", price: 110000 },
+        ]
+      },
+      {
+        id: 2, title: "Select Fragrance Family", desc: "The foundation of your scent.",
+        field: "family",
+        options: [
+          { id: "Floral", title: "Floral", desc: "Romantic & elegant", price: 0 },
+          { id: "Woody", title: "Woody", desc: "Warm & earthy", price: 0 },
+          { id: "Fresh", title: "Fresh", desc: "Clean & uplifting", price: 0 },
+          { id: "Oriental", title: "Oriental", desc: "Spicy & exotic", price: 0 },
+        ]
+      },
+      {
+        id: 3, title: "Top Note (First Impression)", desc: "The initial burst of scent that lasts for the first 15 minutes.",
+        field: "topNote",
+        options: [
+          { id: "Bergamot", title: "Bergamot", desc: "Sparkling & zesty", price: 5000 },
+          { id: "Lavender", title: "Lavender", desc: "Calming & herbal", price: 5000 },
+          { id: "Pink Pepper", title: "Pink Pepper", desc: "Spicy & modern", price: 8000 },
+          { id: "Sea Salt", title: "Sea Salt", desc: "Marine & breezy", price: 4000 },
+        ]
+      },
+      {
+        id: 4, title: "Heart Note (The Core)", desc: "The main body of the perfume, lasting several hours.",
+        field: "heartNote",
+        options: [
+          { id: "Jasmine", title: "Jasmine", desc: "Rich & sensual", price: 10000 },
+          { id: "Rose", title: "Rose", desc: "Classic & romantic", price: 12000 },
+          { id: "Cardamom", title: "Cardamom", desc: "Warm & aromatic", price: 9000 },
+          { id: "Sage", title: "Sage", desc: "Earthy & green", price: 7000 },
+        ]
+      },
+      {
+        id: 5, title: "Base Note (The Trail)", desc: "The deep, lingering scent that lasts all day.",
+        field: "baseNote",
+        options: [
+          { id: "Vanilla", title: "Madagascar Vanilla", desc: "Sweet & comforting", price: 15000 },
+          { id: "Sandalwood", title: "Sandalwood", desc: "Creamy & woody", price: 18000 },
+          { id: "Oud", title: "Oud (Agarwood)", desc: "Dark & luxurious", price: 35000 },
+          { id: "Musk", title: "White Musk", desc: "Clean & skin-like", price: 12000 },
+        ]
+      },
+      {
+        id: 6, title: "Concentration", desc: "Determines the strength and longevity of your perfume.",
+        field: "concentration",
+        options: [
+          { id: "EDT", title: "Eau de Toilette (10-15%)", desc: "Light & breezy. Lasts 4-6 hours.", price: 0 },
+          { id: "EDP", title: "Eau de Parfum (15-20%)", desc: "Strong & present. Lasts 8-10 hours.", price: 25000 },
+          { id: "Extrait", title: "Extrait de Parfum (20-30%)", desc: "Intense. Lasts 12+ hours.", price: 50000 },
+        ]
+      },
+      {
+        id: 7, title: "Perfume Character", desc: "How would you describe the overall vibe?",
+        field: "character",
+        options: [
+          { id: "Masculine", title: "Masculine", desc: "Bold & confident", price: 0 },
+          { id: "Feminine", title: "Feminine", desc: "Soft & alluring", price: 0 },
+          { id: "Unisex", title: "Unisex", desc: "Modern & balanced", price: 0 },
+        ]
+      },
+      {
+        id: 8, title: "Name Your Creation", desc: "Give your signature scent a name.",
+        field: "name",
+        type: "input"
+      }
+    ];
+
+    // Elements
+    const stepLabel = document.getElementById('step-label');
+    const priceLabel = document.getElementById('price-label');
+    const progressBar = document.getElementById('progress-bar');
+    const stepTitle = document.getElementById('step-title');
+    const stepDesc = document.getElementById('step-desc');
+    const optionsContainer = document.getElementById('options-container');
+    const btnBack = document.getElementById('btn-back');
+    const btnNext = document.getElementById('btn-next');
+    const checkoutContainer = document.getElementById('checkout-container');
+    const btnWhatsapp = document.getElementById('btn-whatsapp');
+
+    function calculateTotal() {
+      let total = 0;
+      steps.forEach(s => {
+        if (s.options) {
+          const selectedId = state[s.field];
+          const option = s.options.find(o => o.id === selectedId);
+          if (option) total += option.price;
+        }
+      });
+      state.totalPrice = total;
+      priceLabel.textContent = formatIDR(total);
+    }
+
+    function renderStep() {
+      const currentStep = steps[state.step - 1];
+      stepLabel.textContent = `Step ${state.step} of 8`;
+      progressBar.style.width = `${(state.step / 8) * 100}%`;
+      stepTitle.textContent = currentStep.title;
+      stepDesc.textContent = currentStep.desc;
+      
+      optionsContainer.innerHTML = '';
+      
+      if (currentStep.type === "input") {
+        optionsContainer.className = "flex flex-col gap-4 mb-10";
+        optionsContainer.innerHTML = `
+          <div class="bg-gray-50 p-6 rounded-xl border mb-6 text-center">
+            <h3 class="text-lg font-bold mb-2 text-[#0F0040]">Your Custom Formula</h3>
+            <p class="text-sm text-gray-600 mb-4">${state.size} • ${state.concentration} • ${state.character}</p>
+            <div class="flex justify-center gap-2 text-xs font-semibold uppercase tracking-wider mb-2">
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded">${state.topNote}</span>
+              <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded">${state.heartNote}</span>
+              <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded">${state.baseNote}</span>
+            </div>
+            <p class="text-2xl font-bold text-[#36E814] mt-6">${formatIDR(state.totalPrice)}</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Scent Name</label>
+            <input type="text" id="name-input" placeholder="e.g. Midnight Memory" class="w-full border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#36E814]" value="${state.name}">
+          </div>
+        `;
+        
+        document.getElementById('name-input').addEventListener('input', (e) => {
+          state.name = e.target.value;
+          updateButtons();
+        });
+        
+        btnNext.classList.add('hidden');
+        checkoutContainer.classList.remove('hidden');
+        updateWhatsappLink();
+        
+      } else {
+        optionsContainer.className = "grid grid-cols-1 md:grid-cols-2 gap-4 mb-10";
+        checkoutContainer.classList.add('hidden');
+        btnNext.classList.remove('hidden');
+        
+        currentStep.options.forEach(opt => {
+          const isSelected = state[currentStep.field] === opt.id;
+          const div = document.createElement('div');
+          div.className = `p-4 border-2 rounded-xl cursor-pointer transition-all ${isSelected ? 'border-[#36E814] bg-[#36E814]/5' : 'border-gray-200 hover:border-[#0F0040]/30 hover:bg-gray-50'}`;
+          div.onclick = () => {
+            state[currentStep.field] = opt.id;
+            calculateTotal();
+            renderStep();
+          };
+          
+          div.innerHTML = `
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-bold text-[#0F0040]">${opt.title}</h3>
+              ${opt.price > 0 ? `<span class="text-xs font-bold text-[#36E814] bg-white px-2 py-1 rounded-full border">+${formatIDR(opt.price)}</span>` : ''}
+            </div>
+            <p class="text-sm text-gray-500">${opt.desc}</p>
+          `;
+          optionsContainer.appendChild(div);
+        });
+      }
+      
+      updateButtons();
+    }
+
+    function updateButtons() {
+      const currentStep = steps[state.step - 1];
+      
+      if (state.step > 1) {
+        btnBack.classList.remove('hidden');
+      } else {
+        btnBack.classList.add('hidden');
+      }
+      
+      if (currentStep.type !== "input") {
+        if (state[currentStep.field]) {
+          btnNext.disabled = false;
+        } else {
+          btnNext.disabled = true;
+        }
+      }
+    }
+
+    function updateWhatsappLink() {
+      const message = `Hello Great Parfum! I'd like to order my custom blend:%0A%0A*Name:* ${state.name || 'My Custom Blend'}%0A*Size:* ${state.size}%0A*Family:* ${state.family}%0A*Top Note:* ${state.topNote}%0A*Heart Note:* ${state.heartNote}%0A*Base Note:* ${state.baseNote}%0A*Concentration:* ${state.concentration}%0A*Character:* ${state.character}%0A%0A*Total Price:* ${formatIDR(state.totalPrice)}%0A%0AIs this available?`;
+      btnWhatsapp.href = `https://wa.me/6285773585632?text=${message}`;
+    }
+
+    btnNext.onclick = () => {
+      if (state.step < 8) {
+        state.step++;
+        renderStep();
+      }
+    };
+    
+    btnBack.onclick = () => {
+      if (state.step > 1) {
+        state.step--;
+        renderStep();
+      }
+    };
+
+    // Initialize
+    calculateTotal();
+    renderStep();
+
+  </script>
+</body>
+</html>
